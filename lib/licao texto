@@ -1,0 +1,48 @@
+
+class Campotexto extends StatefulWidget {
+  @override
+  _CampotextoState createState() => _CampotextoState();
+}
+
+class _CampotextoState extends State<Campotexto> {
+  TextEditingController _textEditingController = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Entradas de dados"),
+      ),
+      body: Column(
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(32),
+            child: TextField(
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(labelText: "Digite um valor"),
+              // enable: false,
+              //maxLength: 4,
+              //maxLengthEnforced: true,
+              //style: TextStyle(fontSize: 25, color: Colors.green),
+              //obscureText: true,
+              /*onChanged: (String texto) {
+                print("valor digitado:" + texto);
+              },*/
+              onSubmitted: (String texto) {
+                print("valor digitado:" + texto);
+              },
+              controller: _textEditingController,
+            
+            ),
+          ),
+          RaisedButton(
+            child: Text("Salvar"),
+            color: Colors.lightBlue,
+            onPressed: () {
+              print("valor digitado:" + _textEditingController.text);
+            },
+          )
+        ],
+      ),
+    );
+  }
+}
